@@ -1,0 +1,24 @@
+--Create a grocery store database
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, amount INTEGER, price INTEGER, shipable TEXT);
+
+INSERT INTO store VALUES (1,"cake",1,80,"no");
+INSERT INTO store VALUES (2,"cakesicles",24,65,"yes");
+INSERT INTO store VALUES (3,"cupcakes",36,65,"yes");
+INSERT INTO store VALUES (4,"cake pops",12,50,"yes");
+INSERT INTO store VALUES (5,"pretzel sticks",50,30,"yes");
+INSERT INTO store VALUES (6,"strawberries",6,50,"yes");
+INSERT INTO store VALUES (7,"oreos",42,65,"yes");
+INSERT INTO store VALUES (8,"donuts",6,50,"yes");
+INSERT INTO store VALUES (9,"marshmallows",36,45,"yes");
+INSERT INTO store VALUES (10,"milk",10,05,"yes");
+INSERT INTO store VALUES (11,"cookies",13,75,"yes");
+INSERT INTO store VALUES (12,"frosting",7,15,"yes");
+INSERT INTO store VALUES (13,"sprinkles",10,20,"yes");
+INSERT INTO store VALUES (14,"cheesecake",1,75,"no");
+INSERT INTO store VALUES (15,"icecream",10,35,"no");
+
+--what is the total number of items i currently have in my store.
+SELECT SUM(amount)FROM store;
+
+--display the database ordered by price.
+SELECT * FROM store ORDER BY price;
