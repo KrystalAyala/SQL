@@ -53,3 +53,38 @@ SELECT Product, sum(quantity)
 FROM BIT_DB.FebSales 
 WHERE location like '%Los Angeles%'
 GROUP BY Product
+
+--
+SELECT distinct location, count(orderID)
+FROM BIT_DB.JanSales
+WHERE location LIKE '%NY%'
+AND length(orderID) = 6
+GROUP BY location
+HAVING count(orderID) >= 3
+
+--
+SELECT Product, SUM(QUANTITY)
+FROM BIT_DB.FebSales
+WHERE product LIKE '%Headphones'
+GROUP BY Product
+
+--
+SELECT sum(FebSales.quantity * FebSales.price)/ count(customers.acctnum)
+FROM BIT_DB.FebSales
+LEFT JOIN BIT_DB.customers
+ON FebSales.orderID = customers.order_id
+WHERE length(orderid) = 6
+
+--
+SELECT sum(FebSales.Quantity)/ count(customers.acctnum)
+FROM BIT_DB.FebSales
+LEFT JOIN BIT_DB.customers
+ON FebSales.orderID = customers.order_id
+WHERE length(orderid) = 6
+
+--
+SELECT distinct Product, sum(Quantity * Product) as TOTAL_REV
+FROM BIT_DB.JanSales
+GROUP BY Product
+ORDER BY TOTAL_REV DESC 
+LIMIT 1
